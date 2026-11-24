@@ -25,10 +25,10 @@ on:
         default: expo
       android_build:
         description: "Custom Android build command or prebuilt download (optional, then set apk_path)"
-        default: ""
+        default: "export EXPO_PUBLIC_LORESTA_API_ENV=development EXPO_PUBLIC_LORESTA_API_URL=http://127.0.0.1:8788 CI=1; npm ci && npx expo prebuild --platform android --no-install && cd android && ./gradlew assembleRelease -PreactNativeArchitectures=x86_64 --build-cache"
       apk_path:
         description: Path of the .apk produced by android_build
-        default: ""
+        default: android/app/build/outputs/apk/release/app-release.apk
       ios_build:
         description: "Custom iOS build command or prebuilt download (optional, then set ios_app_path)"
         default: ""
