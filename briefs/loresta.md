@@ -10,11 +10,15 @@ finish any of them. Do not try. Tap **Preview a sample account** instead; it ope
 the app with made-up data. (Ignore the "create an account" goal and the e-mail
 rule of AGENT_BRIEF.md.)
 
-## Mission (about 45 actions, then write the report)
-1. Open every tab of the bottom bar in turn: Home, Inbox, Supporters, Updates,
+## Mission (about 50 actions, then write the report)
+1. Open every tab of the bottom bar in turn: Home, Messages, Supporters, Updates,
    Settings. Scroll each one to the bottom.
 2. Press every button, row and link you can see on each screen, then come back
-   with the back button or gesture. Open one conversation and one supporter.
+   with the back button or gesture. Open one conversation and one supporter, and
+   open their "More" row of rarer actions. On Home, swipe the card left and right,
+   and use its buttons too.
+6. Switch dark mode on and off (`adb shell cmd uimode night yes`, then `no`) and
+   look at two screens each time: text that is hard to read, wrong colours, white flashes.
 3. Pull down on a list to refresh.
 4. Rotate the phone on two screens (`adb shell settings put system user_rotation 1`,
    back with `0`). Check large text, which is already set for you.
