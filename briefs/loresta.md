@@ -17,12 +17,12 @@ rule of AGENT_BRIEF.md.)
    with the back button or gesture. Open one conversation and one supporter, and
    open their "More" row of rarer actions. On Home, swipe the card left and right,
    and use its buttons too.
-6. Switch dark mode on and off (`adb shell cmd uimode night yes`, then `no`) and
-   look at two screens each time: text that is hard to read, wrong colours, white flashes.
 3. Pull down on a list to refresh.
 4. Rotate the phone on two screens (`adb shell settings put system user_rotation 1`,
    back with `0`). Check large text, which is already set for you.
 5. Leave the app (home button) and come back: it should be where you left it.
+6. Switch dark mode on and off (`adb shell cmd uimode night yes`, then `no`) and
+   look at two screens each time: text that is hard to read, wrong colours, white flashes.
 
 ## Report these
 Crashes or a white screen, buttons that do nothing, text that is cut off or
