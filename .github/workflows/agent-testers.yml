@@ -13,16 +13,16 @@ on:
         default: "anna,malik"
       ios_personas:
         description: iOS personas from personas.json (comma-separated, all = every iOS persona, none = skip iOS)
-        default: "clara,jonas"
+        default: "none"
       app_dir:
         description: App folder (where package.json is)
-        default: demo-app
+        default: apps/mobile
       app_id:
         description: Android package / iOS bundle id (if a platform uses another id, the one inside its built app is used)
-        default: com.example.tinytodo
+        default: co.loresta.mobile
       framework:
         description: auto, flutter, expo, react-native, capacitor, kmp, native or maui
-        default: auto
+        default: expo
       android_build:
         description: "Custom Android build command or prebuilt download (optional, then set apk_path)"
         default: ""
@@ -40,19 +40,19 @@ on:
         default: ""
       source_repo:
         description: owner/name of the app repo (empty = this repo)
-        default: ""
+        default: FrigidMark7/loresta
       ref:
         description: Branch, tag or full SHA of the app repo (empty = default branch)
         default: ""
       brief:
         description: Agent brief file
-        default: AGENT_BRIEF.md
+        default: briefs/loresta.md
       bug_report:
         description: "Bug to reproduce instead of exploring: an issue (owner/repo#123 or its URL) or the steps as text. Agents follow it: read it first"
         default: ""
       model:
         description: "Model: sonnet, opus, haiku (cheapest) or a full Claude id. With llm_base_url, the provider's model name"
-        default: sonnet
+        default: haiku
       llm_base_url:
         description: "Optional: any Anthropic-compatible API instead of Claude (OpenRouter, DeepSeek, Kimi, GLM...), key in the LLM_API_KEY secret. Quality depends on how well the model reads screenshots and reasons: docs/cheaper-models.md"
         default: ""
@@ -108,7 +108,7 @@ jobs:
       - uses: actions/setup-java@v4
         with: { distribution: temurin, java-version: "17" }
       - uses: gradle/actions/setup-gradle@v4   # Gradle cache between runs
-        with: { cache-read-only: false }
+        with: { cache-read-only: false, add-job-summary: never }   # summaries of a public repo are public
       - uses: actions/cache@v4
         with:
           path: ~/.npm
@@ -243,7 +243,7 @@ jobs:
           LOCALE: ${{ matrix.locale }}
           GEO: ${{ matrix.geo }}
           APP_ID: ${{ inputs.app_id }}
-          BRIEF: ${{ inputs.bug_report != '' && inputs.brief == 'AGENT_BRIEF.md' && 'briefs/reproduce.md' || inputs.brief }}
+          BRIEF: ${{ inputs.bug_report != '' && inputs.brief == 'briefs/loresta.md' && 'briefs/reproduce.md' || inputs.brief }}
           MODEL: ${{ inputs.model }}
           LLM_BASE_URL: ${{ inputs.llm_base_url }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
@@ -347,7 +347,7 @@ jobs:
           LOCALE: ${{ matrix.locale }}
           GEO: ${{ matrix.geo }}
           APP_ID: ${{ inputs.app_id }}
-          BRIEF: ${{ inputs.bug_report != '' && inputs.brief == 'AGENT_BRIEF.md' && 'briefs/reproduce.md' || inputs.brief }}
+          BRIEF: ${{ inputs.bug_report != '' && inputs.brief == 'briefs/loresta.md' && 'briefs/reproduce.md' || inputs.brief }}
           MODEL: ${{ inputs.model }}
           LLM_BASE_URL: ${{ inputs.llm_base_url }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
