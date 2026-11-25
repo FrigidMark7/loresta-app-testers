@@ -1,24 +1,21 @@
-# Brief: re-check four fixes in the Loresta phone app
+# Brief: re-check the conversation screen of the Loresta phone app
 
 Read AGENT_BRIEF.md first: its tools, rules and final report files all apply.
-Sign-in: never try it. Tap **Preview a sample account** (it may be below the first
-screen: scroll). Ignore the "create an account" goal and the e-mail rule.
+Sign-in: never try it. Tap **Preview a sample account** (scroll if it is not on the
+first screen). Ignore the "create an account" goal and the e-mail rule.
 
-Check exactly these four things, about 40 actions in all. For each, write one line
-in report.md: FIXED, NOT FIXED or COULD NOT CHECK, with screenshot numbers and what you saw.
+About 35 actions. For each check write one line in report.md: FIXED, NOT FIXED or
+COULD NOT CHECK, with screenshot numbers and what you saw.
 
-1. Report dialog: Supporters > any supporter > More > Report this person (and the
-   same for Block). A dialog opens with a visible Cancel. Android Back closes it,
-   and tapping outside the dialog closes it, without filing anything.
-2. Your font size is already set (see the device line). On the sign-in screen, is
-   "Preview a sample account" reachable by scrolling? On Home, Messages, Supporters,
-   Updates and Settings: do the screen titles stay whole words (no "Supporte / rs")?
-   In Settings, are all three reply options (Off, Draft, Send safe ones) shown in full?
-3. Messages > open a conversation > Write my own > tap the box and type a few words.
-   Are the box and the Send reply button both still visible above the keyboard?
-   Then press Android Back: do you land on the Messages list?
-4. Dark mode: `adb shell cmd uimode night yes` (then `no`), go Home and come back
-   to the app. Report what you see. The sample account is not expected to change;
-   say so, and mark COULD NOT CHECK if so.
+1. The app opens and shows Home (it was just rebuilt): any crash or white screen?
+2. Messages > open a conversation > "Write my own" > tap the box and type a few
+   words. WITHOUT scrolling by hand: are both the box and the "Send reply" button
+   visible above the keyboard? Do not send anything.
+3. Same conversation, keyboard closed: are the "Write my own" and "Discard draft"
+   buttons whole (not cut) and fully above the bottom bar? Do they stack when they
+   do not fit side by side?
+4. Conversation header: are the name and the status line (for example
+   "Link request", "12m ago") whole words, not split in the middle?
+5. Android Back from the conversation: do you land on the Messages list?
 
-Also list any NEW problem you notice on the way (crash, dead button, cut text).
+Also list any NEW problem you notice (crash, dead button, cut text), briefly.
