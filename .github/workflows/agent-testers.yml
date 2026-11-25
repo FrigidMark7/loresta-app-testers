@@ -172,6 +172,7 @@ jobs:
           IOS_SCHEME: ${{ vars.IOS_SCHEME }}   # optional repo variable, for projects with several schemes
           EXPO_PUBLIC_LORESTA_API_ENV: development   # local-only address: the sample account makes no backend calls
           EXPO_PUBLIC_LORESTA_API_URL: http://127.0.0.1:8788
+          GOOGLE_IOS_URL_SCHEME: com.googleusercontent.apps.0-tester   # made-up placeholder so the Google sign-in plugin configures the pods
         run: bash scripts/build/ios.sh "$APP_DIR" "${{ inputs.framework }}"
       - name: Encrypt .app
         env: { ARTIFACT_PASSPHRASE: "${{ secrets.ARTIFACT_PASSPHRASE }}" }
