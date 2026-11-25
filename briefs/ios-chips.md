@@ -1,14 +1,17 @@
-# Brief: find which Messages chip closes the Loresta phone app
+# Brief: tap every filter chip of the Loresta phone app and watch for a crash
 
 Read AGENT_BRIEF.md first: its tools, rules and final report files all apply.
 Sign-in: never try it. Tap **Preview a sample account**. Ignore the "create an
 account" goal and the e-mail rule.
 
-About 25 actions. Open the Messages tab. Below the title is a row of filter chips.
-Tap them in exactly this order, with a screenshot after each tap, and write in
-report.md after each one whether the app stayed open:
-1. Needs you  2. All  3. Drafts (only if shown)  4. All  5. Protected
+About 35 actions, a screenshot after each tap. After each tap write in report.md
+whether the app stayed open.
+1. Messages tab: tap the chips Needs you, All, Drafts (if shown), Protected. On the
+   empty list that Protected shows, tap "Show all".
+2. Updates tab: tap every filter chip once.
+3. Settings tab: open one group of pill choices (for example the reply mode or
+   notification choices) and tap each pill once.
 
 If the app closes or goes to the home screen, say which tap did it, reopen the app
-(sample account again) and try that chip once more. Do not try anything else after
-that: the crash logs are collected for you after you finish.
+(sample account again) and continue with the next tap. Crash logs are collected
+for you after you finish.
