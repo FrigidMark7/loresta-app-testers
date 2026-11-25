@@ -358,6 +358,18 @@ jobs:
           RECORD_VIDEO: ${{ inputs.record_video }}
         run: bash scripts/ios/run_agent.sh
 
+      - name: Collect crash logs
+        if: always()
+        run: |
+          mkdir -p results/crash
+          xcrun simctl spawn booted log show --last 60m --style compact \
+            --predicate 'process CONTAINS "Loresta" OR eventMessage CONTAINS "Unhandled JS Exception" OR eventMessage CONTAINS "Fatal" OR eventMessage CONTAINS "RCTFatal"' \
+            > results/crash/simulator-log.txt 2>&1 || true
+          log show --last 60m --style compact --predicate 'process CONTAINS "Loresta" AND (eventMessage CONTAINS "exception" OR eventMessage CONTAINS "Fatal")' \
+            > results/crash/host-log.txt 2>&1 || true
+          cp ~/Library/Logs/DiagnosticReports/*.ips results/crash/ 2>/dev/null || true
+          ls -la results/crash || true
+
       - name: Encrypt results
         if: always()
         run: bash scripts/encrypt_results.sh "${{ matrix.persona }}"

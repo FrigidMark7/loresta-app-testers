@@ -18,4 +18,9 @@ COULD NOT CHECK, with screenshot numbers and what you saw.
    "Link request", "12m ago") whole words, not split in the middle?
 5. Android Back from the conversation: do you land on the Messages list?
 
+6. Same check as 2 on Home: if a card has a reply box, tap it and type. Then on
+   Supporters: open a supporter and, if there is a reply box, tap it and type. Is
+   "Send reply" (or the send button) fully visible above the keyboard each time?
+   If not, say roughly how many pixels of it are hidden.
+
 Also list any NEW problem you notice (crash, dead button, cut text), briefly.
